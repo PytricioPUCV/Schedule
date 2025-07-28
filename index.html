@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Académico - Semestre 2024</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Horario Académico</h1>
+            <p>Semestre 2024 - Ingeniería de Software</p>
+        </header>
+
+        <div class="schedule-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-clock icon"></i>Horario</th>
+                        <th><i class="fas fa-calendar-day icon"></i>Lunes</th>
+                        <th><i class="fas fa-calendar-day icon"></i>Martes</th>
+                        <th><i class="fas fa-calendar-day icon"></i>Miércoles</th>
+                        <th><i class="fas fa-calendar-day icon"></i>Jueves</th>
+                        <th><i class="fas fa-calendar-day icon"></i>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 1-2</strong><br>
+                            8:15 - 9:25
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="class-cell legislacion">
+                                <div class="class-name">
+                                    <i class="fas fa-gavel icon"></i>
+                                    Legislación
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    
+                    <tr class="break-row">
+                        <td colspan="6">
+                            <div class="break-cell">
+                                <i class="fas fa-coffee"></i> Pausa - 10 minutos
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 3-4</strong><br>
+                            9:35 - 10:45
+                        </td>
+                        <td>
+                            <div class="class-cell db">
+                                <div class="class-name">
+                                    <i class="fas fa-database icon"></i>
+                                    Taller De BD
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell algebra">
+                                <div class="class-name">
+                                    <i class="fas fa-calculator icon"></i>
+                                    Álgebra Lineal
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell db">
+                                <div class="class-name">
+                                    <i class="fas fa-database icon"></i>
+                                    Taller De BD
+                                </div>
+                                <div class="class-type">Taller</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell algebra">
+                                <div class="class-name">
+                                    <i class="fas fa-calculator icon"></i>
+                                    Álgebra Lineal
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell web">
+                                <div class="class-name">
+                                    <i class="fas fa-code icon"></i>
+                                    Ing. Web y Móvil
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="break-row">
+                        <td colspan="6">
+                            <div class="break-cell">
+                                <i class="fas fa-pause"></i> Pausa - 15 minutos
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 5-6</strong><br>
+                            11:00 - 12:10
+                        </td>
+                        <td>
+                            <div class="class-cell software">
+                                <div class="class-name">
+                                    <i class="fas fa-cogs icon"></i>
+                                    Ing. de Software
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell algebra">
+                                <div class="class-name">
+                                    <i class="fas fa-calculator icon"></i>
+                                    Álgebra Lineal
+                                </div>
+                                <div class="class-type">Taller</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="conflict-container" title="Conflicto de horario">
+                                <div class="class-cell software">
+                                    <div class="class-name">
+                                        <i class="fas fa-cogs icon"></i>
+                                        Ing. Soft
+                                    </div>
+                                    <div class="class-type">Cátedra</div>
+                                </div>
+                                <div class="class-cell web">
+                                    <div class="class-name">
+                                        <i class="fas fa-code icon"></i>
+                                        Ing. Web
+                                    </div>
+                                    <div class="class-type">Cátedra</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>
+                            <div class="class-cell optimizacion">
+                                <div class="class-name">
+                                    <i class="fas fa-chart-line icon"></i>
+                                    Optimización
+                                </div>
+                                <div class="class-type">Ayudantía</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="break-row">
+                        <td colspan="6">
+                            <div class="break-cell">
+                                <i class="fas fa-pause"></i> Pausa - 10 minutos
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 7-8</strong><br>
+                            12:20 - 13:30
+                        </td>
+                        <td>
+                            <div class="class-cell optimizacion">
+                                <div class="class-name">
+                                    <i class="fas fa-chart-line icon"></i>
+                                    Optimización
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell legislacion">
+                                <div class="class-name">
+                                    <i class="fas fa-gavel icon"></i>
+                                    Legislación
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="class-cell optimizacion">
+                                <div class="class-name">
+                                    <i class="fas fa-chart-line icon"></i>
+                                    Optimización
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="break-row">
+                        <td colspan="6">
+                            <div class="break-cell">
+                                <i class="fas fa-utensils"></i> ALMUERZO - 14:30
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 9-10</strong><br>
+                            14:30 - 15:40
+                        </td>
+                        <td>
+                            <div class="class-cell ingles">
+                                <div class="class-name">
+                                    <i class="fas fa-language icon"></i>
+                                    Inglés 3
+                                </div>
+                                <div class="class-type">Ayudantía Taller</div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="break-row">
+                        <td colspan="6">
+                            <div class="break-cell">
+                                <i class="fas fa-pause"></i> Pausa - 10 minutos
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time-slot">
+                            <strong>Clave 11-12</strong><br>
+                            15:50 - 17:00
+                        </td>
+                        <td>
+                            <div class="class-cell ingles">
+                                <div class="class-name">
+                                    <i class="fas fa-language icon"></i>
+                                    Inglés 3
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell web">
+                                <div class="class-name">
+                                    <i class="fas fa-code icon"></i>
+                                    Ing. Web y Móvil
+                                </div>
+                                <div class="class-type">Taller/Ayudantía</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="class-cell software">
+                                <div class="class-name">
+                                    <i class="fas fa-cogs icon"></i>
+                                    Ing. de Software
+                                </div>
+                                <div class="class-type">Taller/Ayudantía</div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>
+                            <div class="class-cell ingles">
+                                <div class="class-name">
+                                    <i class="fas fa-language icon"></i>
+                                    Inglés 3
+                                </div>
+                                <div class="class-type">Cátedra</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="footer">
+            <p><i class="fas fa-info-circle"></i> Horario actualizado al 28 de Julio de 2025</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
