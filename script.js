@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Taller De BD",
           type: "Cátedra",
+          code: "INF3541-1",
           icon: "fas fa-database",
           className: "db",
         },
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. de Software",
           type: "Cátedra",
+          code: "INF2237-1",
           icon: "fas fa-cogs",
           className: "software",
         },
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Optimización",
           type: "Cátedra",
+          code: "INF3136-2",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Inglés 3",
           type: "Ayudantía Taller",
+          code: "ING9003-16",
           icon: "fas fa-language",
           className: "ingles",
         },
@@ -50,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Inglés 3",
           type: "Cátedra",
+          code: "ING9003-16",
           icon: "fas fa-language",
           className: "ingles",
         },
@@ -62,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Cátedra",
+          code: "MAT1203-1",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -72,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Taller",
+          code: "MAT1203-2",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -82,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Legislación",
           type: "Cátedra",
+          code: "DER2108-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -92,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. Web y Móvil",
           type: "Taller/Ayudantía",
+          code: "INF2821-1",
           icon: "fas fa-code",
           className: "web",
         },
@@ -104,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Taller De BD",
           type: "Taller",
+          code: "INF3541-2",
           icon: "fas fa-database",
           className: "db",
         },
@@ -115,12 +125,14 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             name: "Ing. Soft",
             type: "Cátedra",
+            code: "INF2237-1",
             icon: "fas fa-cogs",
             className: "software",
           },
           {
             name: "Ing. Web",
             type: "Cátedra",
+            code: "INF2821-1",
             icon: "fas fa-code",
             className: "web",
           },
@@ -132,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. de Software",
           type: "Taller/Ayudantía",
+          code: "INF2237-2",
           icon: "fas fa-cogs",
           className: "software",
         },
@@ -144,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Legislación",
           type: "Cátedra",
+          code: "DER2108-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -154,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Cátedra",
+          code: "MAT1203-1",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -166,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. Web y Móvil",
           type: "Cátedra",
+          code: "INF2821-1",
           icon: "fas fa-code",
           className: "web",
         },
@@ -176,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Optimización",
           type: "Ayudantía",
+          code: "INF3136-3",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -186,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Optimización",
           type: "Cátedra",
+          code: "INF3136-2",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -196,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Inglés 3",
           type: "Cátedra",
+          code: "ING9003-16",
           icon: "fas fa-language",
           className: "ingles",
         },
@@ -283,6 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     ${cls.name}
                                 </div>
                                 <div class="class-type">${cls.type}</div>
+                                <div class="class-code">${cls.code}</div>
                             </div>
                         `,
                           )
@@ -305,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ${slot.class.name}
                             </div>
                             <div class="class-type">${slot.class.type}</div>
+                            <div class="class-code">${slot.class.code}</div>
                         </div>
                     </div>
                 `

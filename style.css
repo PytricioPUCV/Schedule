@@ -276,6 +276,15 @@ body {
   letter-spacing: 0.5px;
 }
 
+.class-code {
+  font-size: 0.6rem;
+  opacity: 0.8;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.2rem;
+  letter-spacing: 0.3px;
+}
+
 /* Subject Colors with Gradients */
 .db {
   background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
@@ -419,6 +428,11 @@ body {
   letter-spacing: 0.5px;
 }
 
+.mobile-class-cell .class-code {
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+}
+
 .no-class {
   text-align: center;
   padding: 2rem;
@@ -506,6 +520,10 @@ body {
     font-size: 0.6rem;
     padding: 0.4rem 0.2rem;
   }
+
+  .class-code {
+    font-size: 0.55rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -533,6 +551,10 @@ body {
 
   .class-type {
     font-size: 0.55rem;
+  }
+
+  .class-code {
+    font-size: 0.5rem;
   }
 }
 
