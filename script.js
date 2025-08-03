@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("📄 Horario cargado y listo para usar.")
 
-  // Schedule data for mobile view
+  // Schedule data for mobile view - Optimized
   const scheduleData = {
     lunes: [
       {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Cátedra",
-          code: "MAT1203-1",
+          code: "MAT1004-17",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Taller",
-          code: "MAT1203-2",
+          code: "MAT1004-17",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Legislación",
           type: "Cátedra",
-          code: "DER2108-1",
+          code: "INF4459-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. Web y Móvil",
           type: "Taller/Ayudantía",
-          code: "INF2821-1",
+          code: "INF3245-1",
           icon: "fas fa-code",
           className: "web",
         },
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Taller De BD",
           type: "Taller",
-          code: "INF3541-2",
+          code: "INF3541-1",
           icon: "fas fa-database",
           className: "db",
         },
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             name: "Ing. Web",
             type: "Cátedra",
-            code: "INF2821-1",
+            code: "INF3245-1",
             icon: "fas fa-code",
             className: "web",
           },
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. de Software",
           type: "Taller/Ayudantía",
-          code: "INF2237-2",
+          code: "INF2237-1",
           icon: "fas fa-cogs",
           className: "software",
         },
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Legislación",
           type: "Cátedra",
-          code: "DER2108-1",
+          code: "INF4459-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Álgebra Lineal",
           type: "Cátedra",
-          code: "MAT1203-1",
+          code: "MAT1004-17",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Ing. Web y Móvil",
           type: "Cátedra",
-          code: "INF2821-1",
+          code: "INF3245-1",
           icon: "fas fa-code",
           className: "web",
         },
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         class: {
           name: "Optimización",
           type: "Ayudantía",
-          code: "INF3136-3",
+          code: "INF3136-2",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -222,18 +222,19 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   }
 
-  // Elements
+  // Cache DOM elements
   const tableViewBtn = document.getElementById("table-view")
   const mobileViewBtn = document.getElementById("mobile-view")
-  const daySelector = document.getElementById("day-selector")
   const mobileContent = document.getElementById("mobile-content")
   const body = document.body
 
   let currentView = "table"
   let currentDay = "lunes"
 
-  // View toggle functionality
+  // Optimized view toggle
   function switchView(view) {
+    if (currentView === view) return // Avoid unnecessary work
+
     currentView = view
 
     if (view === "mobile") {
@@ -248,113 +249,126 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Day selection functionality
+  // Optimized day selection
   function selectDay(day) {
+    if (currentDay === day) return // Avoid unnecessary work
+
     currentDay = day
 
-    // Update day buttons
+    // Update day buttons efficiently
     document.querySelectorAll(".day-btn").forEach((btn) => {
-      btn.classList.remove("active")
+      btn.classList.toggle("active", btn.dataset.day === day)
     })
-    document.querySelector(`[data-day="${day}"]`).classList.add("active")
 
     updateMobileContent()
   }
 
-  // Update mobile content
+  // Optimized mobile content update
   function updateMobileContent() {
     const dayData = scheduleData[currentDay] || []
 
     if (dayData.length === 0) {
       mobileContent.innerHTML = `
-                <div class="no-class">
-                    <i class="fas fa-calendar-times"></i>
-                    <p>No hay clases programadas para este día</p>
-                </div>
-            `
+        <div class="no-class">
+          <i class="fas fa-calendar-times"></i>
+          <p>No hay clases programadas para este día</p>
+        </div>`
       return
     }
 
-    mobileContent.innerHTML = dayData
+    // Build HTML more efficiently
+    const html = dayData
       .map((slot) => {
         if (slot.conflict) {
+          const conflictHtml = slot.conflict
+            .map(
+              (cls) => `
+          <div class="mobile-class-cell ${cls.className}" style="margin-bottom: 0.5rem;">
+            <div class="class-name">
+              <i class="${cls.icon}"></i>
+              ${cls.name}
+            </div>
+            <div class="class-type">${cls.type}</div>
+            <div class="class-code">${cls.code}</div>
+          </div>`,
+            )
+            .join("")
+
           return `
-                    <div class="mobile-time-slot">
-                        <div class="mobile-time-header">
-                            <div class="mobile-time-info">
-                                <div class="clave">${slot.clave}</div>
-                                <div class="time">${slot.time}</div>
-                            </div>
-                            <i class="fas fa-clock" style="color: var(--text-secondary);"></i>
-                        </div>
-                        <div style="margin-bottom: 0.5rem;">
-                            <div style="color: #f59e0b; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
-                                <span style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%;"></span>
-                                Conflicto de horario
-                            </div>
-                        </div>
-                        ${slot.conflict
-                          .map(
-                            (cls) => `
-                            <div class="mobile-class-cell ${cls.className}" style="margin-bottom: 0.5rem;">
-                                <div class="class-name">
-                                    <i class="${cls.icon}"></i>
-                                    ${cls.name}
-                                </div>
-                                <div class="class-type">${cls.type}</div>
-                                <div class="class-code">${cls.code}</div>
-                            </div>
-                        `,
-                          )
-                          .join("")}
-                    </div>
-                `
+          <div class="mobile-time-slot">
+            <div class="mobile-time-header">
+              <div class="mobile-time-info">
+                <div class="clave">${slot.clave}</div>
+                <div class="time">${slot.time}</div>
+              </div>
+              <i class="fas fa-clock" style="color: var(--text-secondary);"></i>
+            </div>
+            <div style="margin-bottom: 0.5rem;">
+              <div style="color: #f59e0b; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%;"></span>
+                Conflicto de horario
+              </div>
+            </div>
+            ${conflictHtml}
+          </div>`
         } else {
           return `
-                    <div class="mobile-time-slot">
-                        <div class="mobile-time-header">
-                            <div class="mobile-time-info">
-                                <div class="clave">${slot.clave}</div>
-                                <div class="time">${slot.time}</div>
-                            </div>
-                            <i class="fas fa-clock" style="color: var(--text-secondary);"></i>
-                        </div>
-                        <div class="mobile-class-cell ${slot.class.className}">
-                            <div class="class-name">
-                                <i class="${slot.class.icon}"></i>
-                                ${slot.class.name}
-                            </div>
-                            <div class="class-type">${slot.class.type}</div>
-                            <div class="class-code">${slot.class.code}</div>
-                        </div>
-                    </div>
-                `
+          <div class="mobile-time-slot">
+            <div class="mobile-time-header">
+              <div class="mobile-time-info">
+                <div class="clave">${slot.clave}</div>
+                <div class="time">${slot.time}</div>
+              </div>
+              <i class="fas fa-clock" style="color: var(--text-secondary);"></i>
+            </div>
+            <div class="mobile-class-cell ${slot.class.className}">
+              <div class="class-name">
+                <i class="${slot.class.icon}"></i>
+                ${slot.class.name}
+              </div>
+              <div class="class-type">${slot.class.type}</div>
+              <div class="class-code">${slot.class.code}</div>
+            </div>
+          </div>`
         }
       })
       .join("")
+
+    mobileContent.innerHTML = html
   }
 
-  // Event listeners
-  tableViewBtn.addEventListener("click", () => switchView("table"))
-  mobileViewBtn.addEventListener("click", () => switchView("mobile"))
+  // Event listeners with passive option for better performance
+  tableViewBtn.addEventListener("click", () => switchView("table"), { passive: true })
+  mobileViewBtn.addEventListener("click", () => switchView("mobile"), { passive: true })
 
-  document.querySelectorAll(".day-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      selectDay(e.target.dataset.day)
-    })
-  })
+  // Delegate event handling for day buttons
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (e.target.classList.contains("day-btn") || e.target.closest(".day-btn")) {
+        const btn = e.target.classList.contains("day-btn") ? e.target : e.target.closest(".day-btn")
+        selectDay(btn.dataset.day)
+      }
+    },
+    { passive: true },
+  )
 
-  // Auto-detect mobile and switch view
-  function checkMobileView() {
-    if (window.innerWidth <= 768 && currentView === "table") {
-      switchView("mobile")
-    }
+  // Throttled resize handler
+  let resizeTimeout
+  function handleResize() {
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(() => {
+      if (window.innerWidth <= 768 && currentView === "table") {
+        switchView("mobile")
+      }
+    }, 100)
   }
 
   // Initial setup
-  checkMobileView()
-  window.addEventListener("resize", checkMobileView)
+  if (window.innerWidth <= 768) {
+    switchView("mobile")
+  }
 
-  // Initialize mobile content
+  window.addEventListener("resize", handleResize, { passive: true })
   updateMobileContent()
 })
