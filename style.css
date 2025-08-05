@@ -518,3 +518,16 @@ body {
 .class-cell:hover {
   will-change: transform;
 }
+
+.mobile-class-cell:hover {
+  will-change: transform;
+}
+
+.mobile-class-cell:hover {
+  transform: translateY(-2px);
+  will-change: transform;
+}
+
+.mobile-class-cell {
+  transition: transform 0.2s ease;
+}

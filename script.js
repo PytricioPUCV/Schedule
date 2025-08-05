@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Taller De BD",
           type: "Cátedra",
           code: "INF3541-1",
+          room: "SIB 3-2",
           icon: "fas fa-database",
           className: "db",
         },
@@ -22,19 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Ing. de Software",
           type: "Cátedra",
           code: "INF2237-1",
+          room: "IBC 2-1",
           icon: "fas fa-cogs",
           className: "software",
-        },
-      },
-      {
-        clave: "Clave 7-8",
-        time: "12:20 - 13:30",
-        class: {
-          name: "Optimización",
-          type: "Cátedra",
-          code: "INF3136-2",
-          icon: "fas fa-chart-line",
-          className: "optimizacion",
         },
       },
       {
@@ -42,8 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
         time: "14:30 - 15:40",
         class: {
           name: "Inglés 3",
-          type: "Ayudantía Taller",
+          type: "Ay. Taller",
           code: "ING9003-16",
+          room: "FIN 0-1",
           icon: "fas fa-language",
           className: "ingles",
         },
@@ -51,13 +43,24 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
-        class: {
-          name: "Inglés 3",
-          type: "Cátedra",
-          code: "ING9003-16",
-          icon: "fas fa-language",
-          className: "ingles",
-        },
+        conflict: [
+          {
+            name: "Optimización",
+            type: "Cátedra",
+            code: "INF3136-2",
+            room: "SIB 3-1",
+            icon: "fas fa-chart-line",
+            className: "optimizacion",
+          },
+          {
+            name: "Inglés 3",
+            type: "Cátedra",
+            code: "ING9003-16",
+            room: "IBC 1-1",
+            icon: "fas fa-language",
+            className: "ingles",
+          },
+        ],
       },
     ],
     martes: [
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Álgebra Lineal",
           type: "Cátedra",
           code: "MAT1004-17",
+          room: "FIN 3-5",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -79,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Álgebra Lineal",
           type: "Taller",
           code: "MAT1004-17",
+          room: "FIN 3-5",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -90,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Legislación",
           type: "Cátedra",
           code: "INF4459-1",
+          room: "FIN 5-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -97,13 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
-        class: {
-          name: "Ing. Web y Móvil",
-          type: "Taller/Ayudantía",
-          code: "INF3245-1",
-          icon: "fas fa-code",
-          className: "web",
-        },
+        conflict: [
+          {
+            name: "Ing. Web y Móvil",
+            type: "Taller",
+            code: "INF3245-1",
+            room: "FIN 3-3",
+            icon: "fas fa-code",
+            className: "web",
+          },
+          {
+            name: "Ing. Web y Móvil",
+            type: "Ay. Cátedra",
+            code: "INF3245-1",
+            room: "FIN 3-3",
+            icon: "fas fa-code",
+            className: "web",
+          },
+        ],
       },
     ],
     miercoles: [
@@ -114,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Taller De BD",
           type: "Taller",
           code: "INF3541-1",
+          room: "SIB 3-2",
           icon: "fas fa-database",
           className: "db",
         },
@@ -123,16 +141,18 @@ document.addEventListener("DOMContentLoaded", () => {
         time: "11:00 - 12:10",
         conflict: [
           {
-            name: "Ing. Soft",
+            name: "Ing. de Software",
             type: "Cátedra",
             code: "INF2237-1",
+            room: "IBC 2-1",
             icon: "fas fa-cogs",
             className: "software",
           },
           {
-            name: "Ing. Web",
+            name: "Ing. Web y Móvil",
             type: "Cátedra",
             code: "INF3245-1",
+            room: "IBC 2-5",
             icon: "fas fa-code",
             className: "web",
           },
@@ -141,13 +161,24 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
-        class: {
-          name: "Ing. de Software",
-          type: "Taller/Ayudantía",
-          code: "INF2237-1",
-          icon: "fas fa-cogs",
-          className: "software",
-        },
+        conflict: [
+          {
+            name: "Ing. de Software",
+            type: "Taller",
+            code: "INF2237-1",
+            room: "IBC 2-1",
+            icon: "fas fa-cogs",
+            className: "software",
+          },
+          {
+            name: "Ing. de Software",
+            type: "Ay. Taller",
+            code: "INF2237-1",
+            room: "Por confirmar",
+            icon: "fas fa-cogs",
+            className: "software",
+          },
+        ],
       },
     ],
     jueves: [
@@ -158,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Legislación",
           type: "Cátedra",
           code: "INF4459-1",
+          room: "IBC 2-1",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
@@ -169,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Álgebra Lineal",
           type: "Cátedra",
           code: "MAT1004-17",
+          room: "FIN 3-5",
           icon: "fas fa-calculator",
           className: "algebra",
         },
@@ -182,6 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Ing. Web y Móvil",
           type: "Cátedra",
           code: "INF3245-1",
+          room: "IBC 2-1",
           icon: "fas fa-code",
           className: "web",
         },
@@ -191,8 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
         time: "11:00 - 12:10",
         class: {
           name: "Optimización",
-          type: "Ayudantía",
+          type: "Ay. Cátedra",
           code: "INF3136-2",
+          room: "IBC 2-1",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -204,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Optimización",
           type: "Cátedra",
           code: "INF3136-2",
+          room: "SIB 3-1",
           icon: "fas fa-chart-line",
           className: "optimizacion",
         },
@@ -213,8 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
         time: "15:50 - 17:00",
         class: {
           name: "Inglés 3",
-          type: "Cátedra",
+          type: "Taller",
           code: "ING9003-16",
+          room: "FIN 0-2",
           icon: "fas fa-language",
           className: "ingles",
         },
@@ -289,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${cls.name}
             </div>
             <div class="class-type">${cls.type}</div>
-            <div class="class-code">${cls.code}</div>
+            <div class="class-code">${cls.code} - <strong>${cls.room}</strong></div>
           </div>`,
             )
             .join("")
@@ -327,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${slot.class.name}
               </div>
               <div class="class-type">${slot.class.type}</div>
-              <div class="class-code">${slot.class.code}</div>
+              <div class="class-code">${slot.class.code} - <strong>${slot.class.room}</strong></div>
             </div>
           </div>`
         }
