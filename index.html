@@ -1,387 +1,407 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario Académico - Semestre 2024</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario Académico - Semestre 2024</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>📚 Horario Académico</h1>
-            <p>Sexto semestre - Ingeniería en Informática</p>
-        </header>
+  <div class="container">
+      <header class="header">
+          <h1>📚 Horario Académico</h1>
+          <p>Semestre 2024 - Ingeniería en Informática</p>
+      </header>
 
-        <!-- Mobile View Toggle -->
-        <div class="mobile-controls">
-            <div class="view-toggle">
-                <button id="table-view" class="toggle-btn active">
-                    <i class="fas fa-table"></i> Vista Tabla
-                </button>
-                <button id="mobile-view" class="toggle-btn">
-                    <i class="fas fa-mobile-alt"></i> Vista Móvil
-                </button>
-            </div>
-            
-            <!-- Day selector for mobile -->
-            <div class="day-selector" id="day-selector">
-                <button class="day-btn active" data-day="lunes">
-                    <i class="fas fa-calendar-day"></i> Lunes
-                </button>
-                <button class="day-btn" data-day="martes">
-                    <i class="fas fa-calendar-day"></i> Martes
-                </button>
-                <button class="day-btn" data-day="miercoles">
-                    <i class="fas fa-calendar-day"></i> Miércoles
-                </button>
-                <button class="day-btn" data-day="jueves">
-                    <i class="fas fa-calendar-day"></i> Jueves
-                </button>
-                <button class="day-btn" data-day="viernes">
-                    <i class="fas fa-calendar-day"></i> Viernes
-                </button>
-            </div>
-        </div>
+      <!-- Mobile View Toggle -->
+      <div class="mobile-controls">
+          <div class="view-toggle">
+              <button id="table-view" class="toggle-btn active">
+                  <i class="fas fa-table"></i> Vista Tabla
+              </button>
+              <button id="mobile-view" class="toggle-btn">
+                  <i class="fas fa-mobile-alt"></i> Vista Móvil
+              </button>
+          </div>
+          
+          <!-- Day selector for mobile -->
+          <div class="day-selector" id="day-selector">
+              <button class="day-btn active" data-day="lunes">
+                  <i class="fas fa-calendar-day"></i> Lunes
+              </button>
+              <button class="day-btn" data-day="martes">
+                  <i class="fas fa-calendar-day"></i> Martes
+              </button>
+              <button class="day-btn" data-day="miercoles">
+                  <i class="fas fa-calendar-day"></i> Miércoles
+              </button>
+              <button class="day-btn" data-day="jueves">
+                  <i class="fas fa-calendar-day"></i> Jueves
+              </button>
+              <button class="day-btn" data-day="viernes">
+                  <i class="fas fa-calendar-day"></i> Viernes
+              </button>
+          </div>
+      </div>
 
-        <!-- Desktop Table View -->
-        <div class="schedule-wrapper" id="table-schedule">
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th><i class="fas fa-clock icon"></i>Horario</th>
-                        <th><i class="fas fa-calendar-day icon"></i>Lunes</th>
-                        <th><i class="fas fa-calendar-day icon"></i>Martes</th>
-                        <th><i class="fas fa-calendar-day icon"></i>Miércoles</th>
-                        <th><i class="fas fa-calendar-day icon"></i>Jueves</th>
-                        <th><i class="fas fa-calendar-day icon"></i>Viernes</th>
-                    </tr>
-                </thead>
-                <tbody>
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 1-2</strong><br>
-            8:15 - 9:25
-        </td>
-        <td class="lunes"></td>
-        <td class="martes"></td>
-        <td class="miercoles"></td>
-        <td class="jueves">
-            <div class="class-cell legislacion">
-                <div class="class-name">
-                    <i class="fas fa-gavel icon"></i>
-                    Legislación
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF4459-1 - <strong>IBC 2-1</strong></div>
-            </div>
-        </td>
-        <td class="viernes"></td>
-    </tr>
-    
-    <tr class="break-row">
-        <td colspan="6">
-            <div class="break-cell">
-                <i class="fas fa-coffee"></i> Pausa - 10 minutos
-            </div>
-        </td>
-    </tr>
+      <!-- Desktop Table View -->
+      <div class="schedule-wrapper" id="table-schedule">
+          <table class="schedule-table">
+              <thead>
+                  <tr>
+                      <th><i class="fas fa-clock icon"></i>Horario</th>
+                      <th><i class="fas fa-calendar-day icon"></i>Lunes</th>
+                      <th><i class="fas fa-calendar-day icon"></i>Martes</th>
+                      <th><i class="fas fa-calendar-day icon"></i>Miércoles</th>
+                      <th><i class="fas fa-calendar-day icon"></i>Jueves</th>
+                      <th><i class="fas fa-calendar-day icon"></i>Viernes</th>
+                  </tr>
+              </thead>
+              <tbody>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 1-2</strong><br>
+          8:15 - 9:25
+      </td>
+      <td class="lunes"></td>
+      <td class="martes"></td>
+      <td class="miercoles"></td>
+      <td class="jueves"></td> <!-- Legislación eliminada de aquí -->
+      <td class="viernes"></td>
+  </tr>
+  
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-coffee"></i> Pausa - 10 minutos
+          </div>
+      </td>
+  </tr>
 
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 3-4</strong><br>
-            9:35 - 10:45
-        </td>
-        <td class="lunes">
-            <div class="class-cell db">
-                <div class="class-name">
-                    <i class="fas fa-database icon"></i>
-                    Taller De BD
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF3541-1 - <strong>SIB 3-2</strong></div>
-            </div>
-        </td>
-        <td class="martes">
-            <div class="class-cell algebra">
-                <div class="class-name">
-                    <i class="fas fa-calculator icon"></i>
-                    Álgebra Lineal
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">MAT1004-17 - <strong>FIN 3-5</strong></div>
-            </div>
-        </td>
-        <td class="miercoles">
-            <div class="class-cell db">
-                <div class="class-name">
-                    <i class="fas fa-database icon"></i>
-                    Taller De BD
-                </div>
-                <div class="class-type">Taller</div>
-                <div class="class-code">INF3541-1 - <strong>SIB 3-2</strong></div>
-            </div>
-        </td>
-        <td class="jueves">
-            <div class="class-cell algebra">
-                <div class="class-name">
-                    <i class="fas fa-calculator icon"></i>
-                    Álgebra Lineal
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">MAT1004-17 - <strong>FIN 3-5</strong></div>
-            </div>
-        </td>
-        <td class="viernes">
-            <div class="class-cell web">
-                <div class="class-name">
-                    <i class="fas fa-code icon"></i>
-                    Ing. Web y Móvil
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF3245-1 - <strong>IBC 2-1</strong></div>
-            </div>
-        </td>
-    </tr>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 3-4</strong><br>
+          9:35 - 10:45
+      </td>
+      <td class="lunes">
+          <div class="class-cell db">
+              <div class="class-name">
+                  <i class="fas fa-database icon"></i>
+                  Taller De BD
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF3541-1 - SIB 3-2</div>
+          </div>
+      </td>
+      <td class="martes">
+          <div class="class-cell algebra">
+              <div class="class-name">
+                  <i class="fas fa-calculator icon"></i>
+                  Álgebra Lineal
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">MAT1004-17 - FIN 3-5</div>
+          </div>
+      </td>
+      <td class="miercoles">
+          <div class="class-cell db">
+              <div class="class-name">
+                  <i class="fas fa-database icon"></i>
+                  Taller De BD
+              </div>
+              <div class="class-type">Taller</div>
+              <div class="class-code">INF3541-1 - SIB 3-2</div>
+          </div>
+      </td>
+      <td class="jueves">
+          <div class="class-cell algebra">
+              <div class="class-name">
+                  <i class="fas fa-calculator icon"></i>
+                  Álgebra Lineal
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">MAT1004-17 - FIN 3-5</div>
+          </div>
+      </td>
+      <td class="viernes">
+          <div class="class-cell web">
+              <div class="class-name">
+                  <i class="fas fa-code icon"></i>
+                  Ing. Web y Móvil
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF3245-1 - IBC 2-1</div>
+          </div>
+      </td>
+  </tr>
 
-    <tr class="break-row">
-        <td colspan="6">
-            <div class="break-cell">
-                <i class="fas fa-pause"></i> Pausa - 15 minutos
-            </div>
-        </td>
-    </tr>
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-pause"></i> Pausa - 15 minutos
+          </div>
+      </td>
+  </tr>
 
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 5-6</strong><br>
-            11:00 - 12:10
-        </td>
-        <td class="lunes">
-            <div class="class-cell software">
-                <div class="class-name">
-                    <i class="fas fa-cogs icon"></i>
-                    Ing. de Software
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF2237-1 - <strong>IBC 2-1</strong></div>
-            </div>
-        </td>
-        <td class="martes">
-            <div class="class-cell algebra">
-                <div class="class-name">
-                    <i class="fas fa-calculator icon"></i>
-                    Álgebra Lineal
-                </div>
-                <div class="class-type">Taller</div>
-                <div class="class-code">MAT1004-17 - <strong>FIN 3-5</strong></div>
-            </div>
-        </td>
-        <td class="miercoles">
-            <div class="conflict-container" title="Conflicto de horario">
-                <div class="class-cell software">
-                    <div class="class-name">
-                        <i class="fas fa-cogs icon"></i>
-                        Ing. Soft
-                    </div>
-                    <div class="class-type">Cátedra</div>
-                    <div class="class-code">INF2237-1 - <strong>IBC 2-1</strong></div>
-                </div>
-                <div class="class-cell web">
-                    <div class="class-name">
-                        <i class="fas fa-code icon"></i>
-                        Ing. Web
-                    </div>
-                    <div class="class-type">Cátedra</div>
-                    <div class="class-code">INF3245-1 - <strong>IBC 2-5</strong></div>
-                </div>
-            </div>
-        </td>
-        <td class="jueves"></td>
-        <td class="viernes">
-            <div class="class-cell optimizacion">
-                <div class="class-name">
-                    <i class="fas fa-chart-line icon"></i>
-                    Optimización
-                </div>
-                <div class="class-type">Ay. Cátedra</div>
-                <div class="class-code">INF3136-2 - <strong>IBC 2-1</strong></div>
-            </div>
-        </td>
-    </tr>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 5-6</strong><br>
+          11:00 - 12:10
+      </td>
+      <td class="lunes">
+          <div class="class-cell software">
+              <div class="class-name">
+                  <i class="fas fa-cogs icon"></i>
+                  Ing. de Software
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF2237-1 - IBC 2-1</div>
+          </div>
+      </td>
+      <td class="martes">
+          <div class="class-cell algebra">
+              <div class="class-name">
+                  <i class="fas fa-calculator icon"></i>
+                  Álgebra Lineal
+              </div>
+              <div class="class-type">Taller</div>
+              <div class="class-code">MAT1004-17 - FIN 3-5</div>
+          </div>
+      </td>
+      <td class="miercoles">
+          <div class="conflict-container" title="Conflicto de horario">
+              <div class="class-cell software">
+                  <div class="class-name">
+                      <i class="fas fa-cogs icon"></i>
+                      Ing. Soft
+                  </div>
+                  <div class="class-type">Cátedra</div>
+                  <div class="class-code">INF2237-1 - IBC 2-1</div>
+              </div>
+              <div class="class-cell web">
+                  <div class="class-name">
+                      <i class="fas fa-code icon"></i>
+                      Ing. Web
+                  </div>
+                  <div class="class-type">Cátedra</div>
+                  <div class="class-code">INF3245-1 - IBC 2-5</div>
+              </div>
+          </div>
+      </td>
+      <td class="jueves"></td>
+      <td class="viernes">
+          <div class="class-cell optimizacion">
+              <div class="class-name">
+                  <i class="fas fa-chart-line icon"></i>
+                  Optimización
+              </div>
+              <div class="class-type">Ay. Cátedra</div>
+              <div class="class-code">INF3136-2 - IBC 2-1</div>
+          </div>
+      </td>
+  </tr>
 
-    <tr class="break-row">
-        <td colspan="6">
-            <div class="break-cell">
-                <i class="fas fa-pause"></i> Pausa - 10 minutos
-            </div>
-        </td>
-    </tr>
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-pause"></i> Pausa - 10 minutos
+          </div>
+      </td>
+  </tr>
 
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 7-8</strong><br>
-            12:20 - 13:30
-        </td>
-        <td class="lunes"></td>
-        <td class="martes">
-            <div class="class-cell legislacion">
-                <div class="class-name">
-                    <i class="fas fa-gavel icon"></i>
-                    Legislación
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF4459-1 - <strong>FIN 5-1</strong></div>
-            </div>
-        </td>
-        <td class="miercoles"></td>
-        <td class="jueves"></td>
-        <td class="viernes">
-            <div class="class-cell optimizacion">
-                <div class="class-name">
-                    <i class="fas fa-chart-line icon"></i>
-                    Optimización
-                </div>
-                <div class="class-type">Cátedra</div>
-                <div class="class-code">INF3136-2 - <strong>SIB 3-1</strong></div>
-            </div>
-        </td>
-    </tr>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 7-8</strong><br>
+          12:20 - 13:30
+      </td>
+      <td class="lunes"></td>
+      <td class="martes"></td> <!-- Legislación eliminada de aquí -->
+      <td class="miercoles"></td>
+      <td class="jueves"></td>
+      <td class="viernes">
+          <div class="class-cell optimizacion">
+              <div class="class-name">
+                  <i class="fas fa-chart-line icon"></i>
+                  Optimización
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF3136-2 - SIB 3-1</div>
+          </div>
+      </td>
+  </tr>
 
-    <tr class="break-row">
-        <td colspan="6">
-            <div class="break-cell">
-                <i class="fas fa-utensils"></i> ALMUERZO - 14:30
-            </div>
-        </td>
-    </tr>
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-utensils"></i> ALMUERZO - 14:30
+          </div>
+      </td>
+  </tr>
 
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 9-10</strong><br>
-            14:30 - 15:40
-        </td>
-        <td class="lunes">
-            <div class="class-cell ingles">
-                <div class="class-name">
-                    <i class="fas fa-language icon"></i>
-                    Inglés 3
-                </div>
-                <div class="class-type">Ay. Taller</div>
-                <div class="class-code">ING9003-16 - <strong>FIN 0-1</strong></div>
-            </div>
-        </td>
-        <td class="martes"></td>
-        <td class="miercoles"></td>
-        <td class="jueves"></td>
-        <td class="viernes"></td>
-    </tr>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 9-10</strong><br>
+          14:30 - 15:40
+      </td>
+      <td class="lunes">
+          <div class="class-cell ingles">
+              <div class="class-name">
+                  <i class="fas fa-language icon"></i>
+                  Inglés 3
+              </div>
+              <div class="class-type">Ay. Taller</div>
+              <div class="class-code">ING9003-16 - FIN 0-1</div>
+          </div>
+      </td>
+      <td class="martes"></td>
+      <td class="miercoles"></td>
+      <td class="jueves"></td>
+      <td class="viernes"></td>
+  </tr>
 
-    <tr class="break-row">
-        <td colspan="6">
-            <div class="break-cell">
-                <i class="fas fa-pause"></i> Pausa - 10 minutos
-            </div>
-        </td>
-    </tr>
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-pause"></i> Pausa - 10 minutos
+          </div>
+      </td>
+  </tr>
 
-    <tr>
-        <td class="time-slot">
-            <strong>Clave 11-12</strong><br>
-            15:50 - 17:00
-        </td>
-        <td class="lunes">
-            <div class="conflict-container" title="Conflicto de horario">
-                <div class="class-cell optimizacion">
-                    <div class="class-name">
-                        <i class="fas fa-chart-line icon"></i>
-                        Optimización
-                    </div>
-                    <div class="class-type">Cátedra</div>
-                    <div class="class-code">INF3136-2 - <strong>SIB 3-1</strong></div>
-                </div>
-                <div class="class-cell ingles">
-                    <div class="class-name">
-                        <i class="fas fa-language icon"></i>
-                        Inglés 3
-                    </div>
-                    <div class="class-type">Cátedra</div>
-                    <div class="class-code">ING9003-16 - <strong>IBC 1-1</strong></div>
-                </div>
-            </div>
-        </td>
-        <td class="martes">
-            <div class="conflict-container" title="Conflicto de horario">
-                <div class="class-cell web">
-                    <div class="class-name">
-                        <i class="fas fa-code icon"></i>
-                        Ing. Web
-                    </div>
-                    <div class="class-type">Taller</div>
-                    <div class="class-code">INF3245-1 - <strong>FIN 3-3</strong></div>
-                </div>
-                <div class="class-cell web">
-                    <div class="class-name">
-                        <i class="fas fa-code icon"></i>
-                        Ing. Web
-                    </div>
-                    <div class="class-type">Ay. Cátedra</div>
-                    <div class="class-code">INF3245-1 - <strong>FIN 3-3</strong></div>
-                </div>
-            </div>
-        </td>
-        <td class="miercoles">
-            <div class="conflict-container" title="Conflicto de horario">
-                <div class="class-cell software">
-                    <div class="class-name">
-                        <i class="fas fa-cogs icon"></i>
-                        Ing. Soft
-                    </div>
-                    <div class="class-type">Taller</div>
-                    <div class="class-code">INF2237-1 - <strong>IBC 2-1</strong></div>
-                </div>
-                <div class="class-cell software">
-                    <div class="class-name">
-                        <i class="fas fa-cogs icon"></i>
-                        Ing. Soft
-                    </div>
-                    <div class="class-type">Ay. Taller</div>
-                    <div class="class-code">INF2237-1 - <strong>Por confirmar</strong></div>
-                </div>
-            </div>
-        </td>
-        <td class="jueves"></td>
-        <td class="viernes">
-            <div class="class-cell ingles">
-                <div class="class-name">
-                    <i class="fas fa-language icon"></i>
-                    Inglés 3
-                </div>
-                <div class="class-type">Taller</div>
-                <div class="class-code">ING9003-16 - <strong>FIN 0-2</strong></div>
-            </div>
-        </td>
-    </tr>
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 11-12</strong><br>
+          15:50 - 17:00
+      </td>
+      <td class="lunes">
+          <div class="conflict-container" title="Conflicto de horario">
+              <div class="class-cell optimizacion">
+                  <div class="class-name">
+                      <i class="fas fa-chart-line icon"></i>
+                      Optimización
+                  </div>
+                  <div class="class-type">Cátedra</div>
+                  <div class="class-code">INF3136-2 - SIB 3-1</div>
+              </div>
+              <div class="class-cell ingles">
+                  <div class="class-name">
+                      <i class="fas fa-language icon"></i>
+                      Inglés 3
+                  </div>
+                  <div class="class-type">Cátedra</div>
+                  <div class="class-code">ING9003-16 - IBC 1-1</div>
+              </div>
+          </div>
+      </td>
+      <td class="martes">
+          <div class="conflict-container" title="Conflicto de horario">
+              <div class="class-cell web">
+                  <div class="class-name">
+                      <i class="fas fa-code icon"></i>
+                      Ing. Web
+                  </div>
+                  <div class="class-type">Taller</div>
+                  <div class="class-code">INF3245-1 - FIN 3-3</div>
+              </div>
+              <div class="class-cell web">
+                  <div class="class-name">
+                      <i class="fas fa-code icon"></i>
+                      Ing. Web
+                  </div>
+                  <div class="class-type">Ay. Cátedra</div>
+                  <div class="class-code">INF3245-1 - FIN 3-3</div>
+              </div>
+          </div>
+      </td>
+      <td class="miercoles">
+          <div class="conflict-container" title="Conflicto de horario">
+              <div class="class-cell software">
+                  <div class="class-name">
+                      <i class="fas fa-cogs icon"></i>
+                      Ing. Soft
+                  </div>
+                  <div class="class-type">Taller</div>
+                  <div class="class-code">INF2237-1 - IBC 2-1</div>
+              </div>
+              <div class="class-cell software">
+                  <div class="class-name">
+                      <i class="fas fa-cogs icon"></i>
+                      Ing. Soft
+                  </div>
+                  <div class="class-type">Ay. Taller</div>
+                  <div class="class-code">INF2237-1 - Por confirmar</div>
+              </div>
+          </div>
+      </td>
+      <td class="jueves">
+          <div class="class-cell legislacion"> <!-- Legislación movida aquí -->
+              <div class="class-name">
+                  <i class="fas fa-gavel icon"></i>
+                  Legislación
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF4459-1 - Por confirmar</div>
+          </div>
+      </td>
+      <td class="viernes">
+          <div class="class-cell ingles">
+              <div class="class-name">
+                  <i class="fas fa-language icon"></i>
+                  Inglés 3
+              </div>
+              <div class="class-type">Taller</div>
+              <div class="class-code">ING9003-16 - FIN 0-2</div>
+          </div>
+      </td>
+  </tr>
+
+  <!-- Nueva Clave 13-14 -->
+  <tr>
+      <td class="time-slot">
+          <strong>Clave 13-14</strong><br>
+          17:10 - 18:20
+      </td>
+      <td class="lunes"></td>
+      <td class="martes"></td>
+      <td class="miercoles">
+          <div class="class-cell legislacion">
+              <div class="class-name">
+                  <i class="fas fa-gavel icon"></i>
+                  Legislación
+              </div>
+              <div class="class-type">Cátedra</div>
+              <div class="class-code">INF4459-1 - Por confirmar</div>
+          </div>
+      </td>
+      <td class="jueves"></td>
+      <td class="viernes"></td>
+  </tr>
+  <tr class="break-row">
+      <td colspan="6">
+          <div class="break-cell">
+              <i class="fas fa-pause"></i> Fin de clases
+          </div>
+      </td>
+  </tr>
 </tbody>
-            </table>
-        </div>
+          </table>
+      </div>
 
-        <!-- Mobile Card View -->
-        <div class="mobile-schedule" id="mobile-schedule">
-            <div class="mobile-day-content" id="mobile-content">
-                <!-- Content will be populated by JavaScript -->
-            </div>
-        </div>
+      <!-- Mobile Card View -->
+      <div class="mobile-schedule" id="mobile-schedule">
+          <div class="mobile-day-content" id="mobile-content">
+              <!-- Content will be populated by JavaScript -->
+          </div>
+      </div>
 
-        <footer class="footer">
-            <p><i class="fas fa-info-circle"></i> Horario actualizado al 04 de Julio de 2025</p>
-        </footer>
-    </div>
-    
-    <script src="script.js"></script>
+      <footer class="footer">
+          <p><i class="fas fa-info-circle"></i> Horario actualizado al 05 de agosto de 2025</p>
+      </footer>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>

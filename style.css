@@ -220,6 +220,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
+  color: white;
 }
 
 .class-type {
@@ -228,6 +229,7 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
 }
 
 .class-code {
@@ -237,6 +239,32 @@ body {
   color: rgba(255, 255, 255, 0.9);
   margin-top: 0.2rem;
   letter-spacing: 0.3px;
+}
+
+/* Mejorar legibilidad de salas en negrita */
+.class-code strong {
+  font-weight: inherit; /* Revertido a heredar del padre */
+  text-shadow: none; /* Eliminado */
+  color: inherit; /* Revertido a heredar del padre */
+  font-size: 1em; /* Revertido al tamaño normal */
+  letter-spacing: normal; /* Revertido */
+}
+
+/* Estilos específicos para mejor contraste en colores problemáticos - Eliminados para todo el texto excepto strong */
+.legislacion .class-code strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+.ingles .class-code strong {
+  color: #1a1a1a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  font-weight: 900;
+}
+
+.algebra .class-code strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
 }
 
 /* Subject Colors - Simplified */
@@ -359,6 +387,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  color: white;
 }
 
 .mobile-class-cell .class-type {
@@ -367,11 +396,40 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
 }
 
 .mobile-class-cell .class-code {
   font-size: 0.7rem;
   margin-top: 0.3rem;
+  opacity: 0.8;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Para vista móvil también */
+.mobile-class-cell .class-code strong {
+  font-weight: inherit; /* Revertido a heredar del padre */
+  text-shadow: none; /* Eliminado */
+  color: inherit; /* Revertido a heredar del padre */
+  font-size: 1em; /* Revertido al tamaño normal */
+  letter-spacing: normal; /* Revertido */
+}
+
+.mobile-class-cell.legislacion .class-code strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+.mobile-class-cell.ingles .class-code strong {
+  color: #1a1a1a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  font-weight: 900;
+}
+
+.mobile-class-cell.algebra .class-code strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
 }
 
 .no-class {
@@ -517,17 +575,4 @@ body {
 
 .class-cell:hover {
   will-change: transform;
-}
-
-.mobile-class-cell:hover {
-  will-change: transform;
-}
-
-.mobile-class-cell:hover {
-  transform: translateY(-2px);
-  will-change: transform;
-}
-
-.mobile-class-cell {
-  transition: transform 0.2s ease;
 }

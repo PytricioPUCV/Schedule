@@ -88,18 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "algebra",
         },
       },
-      {
-        clave: "Clave 7-8",
-        time: "12:20 - 13:30",
-        class: {
-          name: "Legislación",
-          type: "Cátedra",
-          code: "INF4459-1",
-          room: "FIN 5-1",
-          icon: "fas fa-gavel",
-          className: "legislacion",
-        },
-      },
+      // Legislación eliminada de aquí
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
@@ -180,20 +169,21 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         ],
       },
-    ],
-    jueves: [
       {
-        clave: "Clave 1-2",
-        time: "8:15 - 9:25",
+        // Nueva clave 13-14 para Legislación
+        clave: "Clave 13-14",
+        time: "17:10 - 18:20",
         class: {
           name: "Legislación",
           type: "Cátedra",
           code: "INF4459-1",
-          room: "IBC 2-1",
+          room: "Por confirmar",
           icon: "fas fa-gavel",
           className: "legislacion",
         },
       },
+    ],
+    jueves: [
       {
         clave: "Clave 3-4",
         time: "9:35 - 10:45",
@@ -204,6 +194,19 @@ document.addEventListener("DOMContentLoaded", () => {
           room: "FIN 3-5",
           icon: "fas fa-calculator",
           className: "algebra",
+        },
+      },
+      {
+        // Legislación movida aquí
+        clave: "Clave 11-12",
+        time: "15:50 - 17:00",
+        class: {
+          name: "Legislación",
+          type: "Cátedra",
+          code: "INF4459-1",
+          room: "Por confirmar",
+          icon: "fas fa-gavel",
+          className: "legislacion",
         },
       },
     ],
@@ -326,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${cls.name}
             </div>
             <div class="class-type">${cls.type}</div>
-            <div class="class-code">${cls.code} - <strong>${cls.room}</strong></div>
+            <div class="class-code">${cls.code} - ${cls.room}</div>
           </div>`,
             )
             .join("")
@@ -364,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${slot.class.name}
               </div>
               <div class="class-type">${slot.class.type}</div>
-              <div class="class-code">${slot.class.code} - <strong>${slot.class.room}</strong></div>
+              <div class="class-code">${slot.class.code} - ${slot.class.room}</div>
             </div>
           </div>`
         }
