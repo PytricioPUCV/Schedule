@@ -28,18 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "software",
         },
       },
-      {
-        clave: "Clave 9-10",
-        time: "14:30 - 15:40",
-        class: {
-          name: "Inglés 3",
-          type: "Ay. Taller",
-          code: "ING9003-16",
-          room: "FIN 0-1",
-          icon: "fas fa-language",
-          className: "ingles",
-        },
-      },
+      // Eliminado: Inglés 3 (Ay. Taller)
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
@@ -52,14 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             icon: "fas fa-chart-line",
             className: "optimizacion",
           },
-          {
-            name: "Inglés 3",
-            type: "Cátedra",
-            code: "ING9003-16",
-            room: "IBC 1-1",
-            icon: "fas fa-language",
-            className: "ingles",
-          },
+          // Eliminado: Inglés 3 (Cátedra)
         ],
       },
     ],
@@ -88,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "algebra",
         },
       },
-      // Legislación eliminada de aquí
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
@@ -247,18 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "optimizacion",
         },
       },
-      {
-        clave: "Clave 11-12",
-        time: "15:50 - 17:00",
-        class: {
-          name: "Inglés 3",
-          type: "Taller",
-          code: "ING9003-16",
-          room: "FIN 0-2",
-          icon: "fas fa-language",
-          className: "ingles",
-        },
-      },
+      // Eliminado: Inglés 3 (Taller)
     ],
   }
 
