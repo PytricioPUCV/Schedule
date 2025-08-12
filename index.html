@@ -24,7 +24,6 @@
             <p>Semestre 2024 - Ingeniería de Software</p>
         </header>
 
-        <!-- Mobile View Toggle -->
         <div class="mobile-controls">
             <div class="view-toggle">
                 <button id="table-view" class="toggle-btn active">
@@ -38,7 +37,6 @@
                 </button>
             </div>
             
-            <!-- Day selector for mobile -->
             <div class="day-selector" id="day-selector">
                 <button class="day-btn active" data-day="lunes">
                     <i class="fas fa-calendar-day"></i> Lunes
@@ -58,7 +56,6 @@
             </div>
         </div>
 
-        <!-- Desktop Table View -->
         <div class="schedule-wrapper" id="table-schedule">
             <table class="schedule-table">
                 <thead>
@@ -231,7 +228,26 @@
                         <td class="lunes"></td>
                         <td class="martes"></td>
                         <td class="miercoles"></td>
-                        <td class="jueves"></td>
+                        <td class="jueves">
+                            <div class="conflict-container" title="Conflicto de horario: Taller en Clave 7, Ayudantía en Clave 8">
+                                <div class="class-cell web">
+                                    <div class="class-name">
+                                        <i class="fas fa-code icon"></i>
+                                        Ing. Web
+                                    </div>
+                                    <div class="class-type">Taller</div>
+                                    <div class="class-code">INF3245-1 - FIN 3-3</div>
+                                </div>
+                                <div class="class-cell web">
+                                    <div class="class-name">
+                                        <i class="fas fa-code icon"></i>
+                                        Ing. Web
+                                    </div>
+                                    <div class="class-type">Ay. Cátedra</div>
+                                    <div class="class-code">INF3245-1 - FIN 3-3</div>
+                                </div>
+                            </div>
+                        </td>
                         <td class="viernes">
                             <div class="class-cell optimizacion">
                                 <div class="class-name">
@@ -287,26 +303,7 @@
                                 <div class="class-code">INF3136-2 - SIB 3-1</div>
                             </div>
                         </td>
-                        <td class="martes">
-                            <div class="conflict-container" title="Conflicto de horario">
-                                <div class="class-cell web">
-                                    <div class="class-name">
-                                        <i class="fas fa-code icon"></i>
-                                        Ing. Web
-                                    </div>
-                                    <div class="class-type">Taller</div>
-                                    <div class="class-code">INF3245-1 - FIN 3-3</div>
-                                </div>
-                                <div class="class-cell web">
-                                    <div class="class-name">
-                                        <i class="fas fa-code icon"></i>
-                                        Ing. Web
-                                    </div>
-                                    <div class="class-type">Ay. Cátedra</div>
-                                    <div class="class-code">INF3245-1 - FIN 3-3</div>
-                                </div>
-                            </div>
-                        </td>
+                        <td class="martes"></td>
                         <td class="miercoles">
                             <div class="conflict-container" title="Conflicto de horario">
                                 <div class="class-cell software">
@@ -340,7 +337,6 @@
                         <td class="viernes"></td>
                     </tr>
 
-                    <!-- Nueva Clave 13-14 -->
                     <tr>
                         <td class="time-slot">
                             <strong>Clave 13-14</strong><br>
@@ -372,14 +368,11 @@
             </table>
         </div>
 
-        <!-- Mobile Card View -->
         <div class="mobile-schedule" id="mobile-schedule">
             <div class="mobile-day-content" id="mobile-content">
-                <!-- Content will be populated by JavaScript -->
-            </div>
+                </div>
         </div>
 
-        <!-- Calendar View -->
         <div class="calendar-wrapper" id="calendar-wrapper">
             <div class="calendar-header">
                 <button id="prev-month-btn" class="month-nav-btn">
@@ -391,8 +384,7 @@
                 </button>
             </div>
             <div class="calendar-grid" id="calendar-grid">
-                <!-- Calendar days will be populated by JavaScript -->
-            </div>
+                </div>
             <div class="calendar-legend">
                 <div class="legend-item">
                     <div class="event-marker"></div>
@@ -401,19 +393,17 @@
             </div>
         </div>
 
-        <!-- Events List -->
         <div class="events-list" id="events-list">
             <h3>
                 <i class="fas fa-list-ul"></i>
                 Próximos Eventos
             </h3>
             <div class="events-list-content" id="events-list-content">
-                <!-- Events will be populated by JavaScript -->
-            </div>
+                </div>
         </div>
 
         <footer class="footer">
-            <p><i class="fas fa-info-circle"></i> Horario actualizado al 28 de Julio de 2025</p>
+            <p><i class="fas fa-info-circle"></i> Horario actualizado al 12 de Agosto de 2025</p>
         </footer>
     </div>
     

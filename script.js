@@ -31,16 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
-        conflict: [
-          {
-            name: "Optimización",
-            type: "Cátedra",
-            code: "INF3136-2",
-            room: "SIB 3-1",
-            icon: "fas fa-chart-line",
-            className: "optimizacion",
-          },
-        ],
+        class: {
+          name: "Optimización",
+          type: "Cátedra",
+          code: "INF3136-2",
+          room: "SIB 3-1",
+          icon: "fas fa-chart-line",
+          className: "optimizacion",
+        },
       },
     ],
     martes: [
@@ -67,28 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "fas fa-calculator",
           className: "algebra",
         },
-      },
-      {
-        clave: "Clave 11-12",
-        time: "15:50 - 17:00",
-        conflict: [
-          {
-            name: "Ing. Web y Móvil",
-            type: "Taller",
-            code: "INF3245-1",
-            room: "FIN 3-3",
-            icon: "fas fa-code",
-            className: "web",
-          },
-          {
-            name: "Ing. Web y Móvil",
-            type: "Ay. Cátedra",
-            code: "INF3245-1",
-            room: "FIN 3-3",
-            icon: "fas fa-code",
-            className: "web",
-          },
-        ],
       },
     ],
     miercoles: [
@@ -173,6 +149,28 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "fas fa-calculator",
           className: "algebra",
         },
+      },
+      {
+        clave: "Clave 7-8",
+        time: "12:20 - 13:30",
+        conflict: [
+          {
+            name: "Ing. Web y Móvil",
+            type: "Taller",
+            code: "INF3245-1",
+            room: "FIN 3-3",
+            icon: "fas fa-code",
+            className: "web",
+          },
+          {
+            name: "Ing. Web y Móvil",
+            type: "Ay. Cátedra",
+            code: "INF3245-1",
+            room: "FIN 3-3",
+            icon: "fas fa-code",
+            className: "web",
+          },
+        ],
       },
       {
         clave: "Clave 11-12",
