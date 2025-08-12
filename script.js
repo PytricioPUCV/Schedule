@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "software",
         },
       },
-      // Eliminado: Inglés 3 (Ay. Taller)
       {
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             icon: "fas fa-chart-line",
             className: "optimizacion",
           },
-          // Eliminado: Inglés 3 (Cátedra)
         ],
       },
     ],
@@ -151,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
       },
       {
-        // Nueva clave 13-14 para Legislación
         clave: "Clave 13-14",
         time: "17:10 - 18:20",
         class: {
@@ -178,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       },
       {
-        // Legislación movida aquí
         clave: "Clave 11-12",
         time: "15:50 - 17:00",
         class: {
@@ -228,18 +224,53 @@ document.addEventListener("DOMContentLoaded", () => {
           className: "optimizacion",
         },
       },
-      // Eliminado: Inglés 3 (Taller)
     ],
   }
 
   // Cache DOM elements
   const tableViewBtn = document.getElementById("table-view")
   const mobileViewBtn = document.getElementById("mobile-view")
+  const calendarViewBtn = document.getElementById("calendar-view")
   const mobileContent = document.getElementById("mobile-content")
+  const calendarGrid = document.getElementById("calendar-grid")
+  const calendarMonthYear = document.getElementById("calendar-month-year")
+  const prevMonthBtn = document.getElementById("prev-month-btn")
+  const nextMonthBtn = document.getElementById("next-month-btn")
   const body = document.body
+  const eventsListContent = document.getElementById("events-list-content")
 
   let currentView = "table"
   let currentDay = "lunes"
+
+  // Calendar state
+  let displayedDate = new Date(2025, 7, 1) // August 2025 (month is 0-indexed)
+  const events = {
+    "2025-8-14": {
+      description: "Entrega TBDD",
+      subject: "Taller de Base de Datos",
+    },
+    "2025-8-15": {
+      description: "Prueba Álgebra",
+      subject: "Álgebra Lineal",
+    },
+  } // Format: "2025-8-22": true
+
+  const monthNames = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ]
+
+  const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
 
   // Optimized view toggle
   function switchView(view) {
@@ -247,15 +278,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentView = view
 
+    // Remove all view classes
+    body.classList.remove("mobile-view-active", "calendar-view-active", "desktop-calendar-layout")
+
+    // Remove active class from all buttons
+    tableViewBtn.classList.remove("active")
+    mobileViewBtn.classList.remove("active")
+    calendarViewBtn.classList.remove("active")
+
     if (view === "mobile") {
       body.classList.add("mobile-view-active")
       mobileViewBtn.classList.add("active")
-      tableViewBtn.classList.remove("active")
       updateMobileContent()
+    } else if (view === "calendar") {
+      if (window.innerWidth > 768) {
+        body.classList.add("desktop-calendar-layout")
+      } else {
+        body.classList.add("calendar-view-active")
+      }
+      calendarViewBtn.classList.add("active")
+      renderCalendar(displayedDate.getFullYear(), displayedDate.getMonth())
+      renderEventsList()
     } else {
-      body.classList.remove("mobile-view-active")
       tableViewBtn.classList.add("active")
-      mobileViewBtn.classList.remove("active")
     }
   }
 
@@ -347,9 +392,209 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileContent.innerHTML = html
   }
 
+  // Calendar functions
+  function renderCalendar(year, month) {
+    // Update header
+    calendarMonthYear.textContent = `${monthNames[month]} ${year}`
+
+    // Update navigation buttons
+    const minDate = new Date(2025, 7, 1) // August 2025
+    const maxDate = new Date(2025, 11, 31) // December 2025
+    const currentDate = new Date(year, month, 1)
+
+    prevMonthBtn.disabled = currentDate <= minDate
+    nextMonthBtn.disabled = currentDate >= maxDate
+
+    // Clear calendar grid
+    calendarGrid.innerHTML = ""
+
+    // Add day headers
+    dayNames.forEach((dayName) => {
+      const dayHeader = document.createElement("div")
+      dayHeader.className = "calendar-day-header"
+      dayHeader.style.cssText = `
+        background: var(--primary-color);
+        color: var(--text-primary);
+        padding: 0.5rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.8rem;
+      `
+      dayHeader.textContent = dayName
+      calendarGrid.appendChild(dayHeader)
+    })
+
+    // Get first day of month and number of days
+    const firstDay = new Date(year, month, 1)
+    const lastDay = new Date(year, month + 1, 0)
+    const daysInMonth = lastDay.getDate()
+    const startingDayOfWeek = firstDay.getDay()
+
+    // Get today's date
+    const today = new Date()
+    const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month
+    const todayDate = today.getDate()
+
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < startingDayOfWeek; i++) {
+      const emptyDay = document.createElement("div")
+      emptyDay.className = "calendar-day other-month"
+      const prevMonthLastDay = new Date(year, month, 0).getDate()
+      const dayNumber = prevMonthLastDay - startingDayOfWeek + i + 1
+      emptyDay.textContent = dayNumber
+      calendarGrid.appendChild(emptyDay)
+    }
+
+    // Add days of the current month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayElement = document.createElement("div")
+      dayElement.className = "calendar-day"
+      dayElement.textContent = day
+
+      // Check if this is today
+      if (isCurrentMonth && day === todayDate) {
+        dayElement.classList.add("today")
+      }
+
+      // Check if this day has an event
+      const eventKey = `${year}-${month + 1}-${day}`
+      if (events[eventKey]) {
+        const eventMarker = document.createElement("div")
+        eventMarker.className = "event-marker"
+        dayElement.appendChild(eventMarker)
+      }
+
+      calendarGrid.appendChild(dayElement)
+    }
+
+    // Add empty cells for days after the last day of the month
+    const totalCells = calendarGrid.children.length - 7 // Subtract day headers
+    const remainingCells = 42 - totalCells // 6 rows * 7 days = 42 total cells
+    for (let i = 1; i <= remainingCells; i++) {
+      const emptyDay = document.createElement("div")
+      emptyDay.className = "calendar-day other-month"
+      emptyDay.textContent = i
+      calendarGrid.appendChild(emptyDay)
+    }
+  }
+
+  function navigateMonth(direction) {
+    const newMonth = displayedDate.getMonth() + direction
+    const newYear = displayedDate.getFullYear()
+
+    // Check bounds
+    const newDate = new Date(newYear, newMonth, 1)
+    const minDate = new Date(2025, 7, 1) // August 2025
+    const maxDate = new Date(2025, 11, 1) // December 2025
+
+    if (newDate >= minDate && newDate <= maxDate) {
+      displayedDate = newDate
+      renderCalendar(displayedDate.getFullYear(), displayedDate.getMonth())
+      renderEventsList()
+    }
+  }
+
+  function toggleEvent(day) {
+    const year = displayedDate.getFullYear()
+    const month = displayedDate.getMonth() + 1
+    const eventKey = `${year}-${month}-${day}`
+
+    if (events[eventKey]) {
+      delete events[eventKey]
+    } else {
+      // For now, create a generic event. Later you can enhance this to ask for details
+      events[eventKey] = {
+        description: "Evento personalizado",
+        subject: "Sin especificar",
+      }
+    }
+
+    // Re-render calendar and events list
+    renderCalendar(displayedDate.getFullYear(), displayedDate.getMonth())
+    renderEventsList()
+  }
+
+  function renderEventsList() {
+    const sortedEvents = Object.entries(events)
+      .map(([dateKey, eventData]) => {
+        const [year, month, day] = dateKey.split("-").map(Number)
+        const date = new Date(year, month - 1, day)
+        return {
+          date,
+          dateKey,
+          ...eventData,
+        }
+      })
+      .sort((a, b) => a.date - b.date)
+
+    if (sortedEvents.length === 0) {
+      eventsListContent.innerHTML = `
+        <div class="no-events">
+          <i class="fas fa-calendar-times"></i>
+          <p>No hay eventos programados</p>
+        </div>`
+      return
+    }
+
+    const html = sortedEvents
+      .map((event) => {
+        const dateStr = event.date.toLocaleDateString("es-ES", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+
+        return `
+        <div class="event-item">
+          <div class="event-info">
+            <div class="event-date">${dateStr}</div>
+            <div class="event-description">${event.description}</div>
+            <div class="event-subject">${event.subject}</div>
+          </div>
+          <div class="event-marker"></div>
+        </div>`
+      })
+      .join("")
+
+    eventsListContent.innerHTML = html
+  }
+
+  function addEvent(dateKey, description, subject) {
+    events[dateKey] = {
+      description: description,
+      subject: subject,
+    }
+
+    // Re-render if currently in calendar view
+    if (currentView === "calendar") {
+      renderCalendar(displayedDate.getFullYear(), displayedDate.getMonth())
+      renderEventsList()
+    }
+  }
+
+  window.addEvent = addEvent
+
   // Event listeners with passive option for better performance
   tableViewBtn.addEventListener("click", () => switchView("table"), { passive: true })
   mobileViewBtn.addEventListener("click", () => switchView("mobile"), { passive: true })
+  calendarViewBtn.addEventListener("click", () => switchView("calendar"), { passive: true })
+
+  // Calendar navigation
+  prevMonthBtn.addEventListener("click", () => navigateMonth(-1), { passive: true })
+  nextMonthBtn.addEventListener("click", () => navigateMonth(1), { passive: true })
+
+  // Calendar day click handler
+  calendarGrid.addEventListener(
+    "click",
+    (e) => {
+      if (e.target.classList.contains("calendar-day") && !e.target.classList.contains("other-month")) {
+        const day = Number.parseInt(e.target.textContent)
+        toggleEvent(day)
+      }
+    },
+    { passive: true },
+  )
 
   // Delegate event handling for day buttons
   document.addEventListener(
@@ -381,4 +626,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", handleResize, { passive: true })
   updateMobileContent()
+  renderEventsList()
 })

@@ -7,6 +7,7 @@
   --text-secondary: #a0a0a0;
   --border-color: rgba(255, 255, 255, 0.15);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --accent-color: #f59e0b;
 }
 
 * {
@@ -67,7 +68,7 @@ body {
 }
 
 .view-toggle {
-  display: none;
+  display: flex;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -491,6 +492,265 @@ body {
   display: block;
 }
 
+/* Calendar Styles */
+.calendar-wrapper {
+  display: none;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calendar-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.month-nav-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.month-nav-btn:hover:not(:disabled) {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.month-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.calendar-day {
+  background: var(--card-bg);
+  padding: 1rem;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.calendar-day:hover:not(.other-month) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.other-month {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background: var(--primary-color);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.calendar-day.today:hover {
+  background: var(--secondary-color);
+}
+
+.event-marker {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Events List Styles */
+.events-list {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.events-list h3 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.events-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.event-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.event-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.event-date {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.event-description {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.event-subject {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-events {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.no-events i {
+  font-size: 2rem;
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Show mobile view when active */
+.mobile-view-active .schedule-wrapper {
+  display: none;
+}
+
+.mobile-view-active .mobile-schedule {
+  display: block;
+}
+
+.mobile-view-active .day-selector {
+  display: flex;
+}
+
+/* Show calendar view when active */
+.calendar-view-active .schedule-wrapper,
+.calendar-view-active .mobile-schedule {
+  display: none;
+}
+
+.calendar-view-active .calendar-wrapper {
+  display: block;
+}
+
+.calendar-view-active .day-selector {
+  display: none;
+}
+
+.calendar-view-active .events-list {
+  display: block;
+}
+
+/* Desktop Calendar Layout */
+@media (min-width: 769px) {
+  .desktop-calendar-layout .schedule-wrapper {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .desktop-calendar-layout .calendar-wrapper {
+    display: block;
+  }
+
+  .desktop-calendar-layout .events-list {
+    display: block;
+  }
+
+  .desktop-calendar-layout .mobile-schedule {
+    display: none;
+  }
+
+  .desktop-calendar-layout .day-selector {
+    display: none;
+  }
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+.class-cell:hover {
+  will-change: transform;
+}
+
+/* Footer */
 .footer {
   text-align: center;
   padding: 2rem;
@@ -521,7 +781,7 @@ body {
     margin-bottom: 1.5rem;
   }
 
-  .mobile-controls .view-toggle {
+  .view-toggle {
     display: flex;
   }
 
@@ -567,6 +827,37 @@ body {
   .class-code {
     font-size: 0.55rem;
   }
+
+  /* Mobile calendar adjustments */
+  .calendar-wrapper {
+    padding: 1rem;
+  }
+
+  .calendar-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day {
+    min-height: 50px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .events-list {
+    padding: 1rem;
+  }
+
+  .events-list h3 {
+    font-size: 1rem;
+  }
+
+  .event-item {
+    padding: 0.75rem;
+  }
+
+  .event-description {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -599,26 +890,22 @@ body {
   .class-code {
     font-size: 0.5rem;
   }
-}
 
-/* Show mobile view when active */
-.mobile-view-active .schedule-wrapper {
-  display: none;
-}
+  /* Small mobile calendar adjustments */
+  .calendar-day {
+    min-height: 40px;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+  }
 
-.mobile-view-active .mobile-schedule {
-  display: block;
-}
+  .month-nav-btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
 
-.mobile-view-active .day-selector {
-  display: flex;
-}
-
-/* Performance optimizations */
-* {
-  will-change: auto;
-}
-
-.class-cell:hover {
-  will-change: transform;
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }

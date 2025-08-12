@@ -21,10 +21,13 @@
         <div class="mobile-controls">
             <div class="view-toggle">
                 <button id="table-view" class="toggle-btn active">
-                    <i class="fas fa-table"></i> Vista Tabla
+                    <i class="fas fa-table"></i> Horario
                 </button>
                 <button id="mobile-view" class="toggle-btn">
                     <i class="fas fa-mobile-alt"></i> Vista Móvil
+                </button>
+                <button id="calendar-view" class="toggle-btn">
+                    <i class="fas fa-calendar"></i> Calendario
                 </button>
             </div>
             
@@ -366,6 +369,39 @@
         <div class="mobile-schedule" id="mobile-schedule">
             <div class="mobile-day-content" id="mobile-content">
                 <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Calendar View -->
+        <div class="calendar-wrapper" id="calendar-wrapper">
+            <div class="calendar-header">
+                <button id="prev-month-btn" class="month-nav-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h2 id="calendar-month-year">Agosto 2025</h2>
+                <button id="next-month-btn" class="month-nav-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+                <!-- Calendar days will be populated by JavaScript -->
+            </div>
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="event-marker"></div>
+                    <span>Evento marcado (clic para agregar/quitar)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Added Events List -->
+        <div class="events-list" id="events-list">
+            <h3>
+                <i class="fas fa-list-ul"></i>
+                Próximos Eventos
+            </h3>
+            <div class="events-list-content" id="events-list-content">
+                <!-- Events will be populated by JavaScript -->
             </div>
         </div>
 
