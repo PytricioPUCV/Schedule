@@ -243,15 +243,160 @@ document.addEventListener("DOMContentLoaded", () => {
   // Calendar state
   let displayedDate = new Date(2025, 7, 1) // August 2025 (month is 0-indexed)
   const events = {
-    "2025-8-14": {
-      description: "Entrega TBDD",
-      subject: "Taller de Base de Datos",
-    },
-    "2025-8-15": {
-      description: "Prueba Álgebra",
-      subject: "Álgebra Lineal",
-    },
-  } // Format: "2025-8-22": true
+  // --- Agosto ---
+  "2025-8-14": {
+    description: "Entrega TBDD",
+    subject: "Taller de Base de Datos",
+  },
+  "2025-8-17": {
+    description: "Control 1",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-8-18": {
+    description: "Quiz problema de las n-reinas",
+    subject: "Optimización",
+  },
+  "2025-8-24": {
+    description: "Control 2",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-8-25": {
+    description: "Quiz problema packing squares",
+    subject: "Optimización",
+  },
+  "2025-8-26": {
+    description: "Control 1",
+    subject: "Álgebra",
+  },
+
+  // --- Septiembre ---
+  "2025-9-1": {
+    description: "Control 1",
+    subject: "Ingenieria de software",
+  },
+  "2025-9-4": {
+    description: "Prueba 1",
+    subject: "Álgebra",
+  },
+  "2025-9-5": {
+    description: "Tarea 1",
+    subject: "Optimización",
+  },
+  "2025-9-7": {
+    description: "Control 3",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-9-8": {
+    description: "Certamen 1",
+    subject: "Ingenieria de software",
+  },
+  "2025-9-10": {
+    description: "Certamen 1 (RA1 y RA2)",
+    subject: "Legislación y Ética en TI",
+  },
+  "2025-9-12": {
+    description: "Certamen 1",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-9-22": {
+    description: "Certamen 1",
+    subject: "Optimización",
+  },
+  "2025-9-28": {
+    description: "Control 4 y Entrega Parcial 1",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-9-30": {
+    description: "Control 2",
+    subject: "Álgebra",
+  },
+  
+  // --- Octubre ---
+  "2025-10-13": {
+    description: "Control 2",
+    subject: "Ingenieria de software",
+  },
+  "2025-10-15": {
+    description: "Entrega 1 - Avance I",
+    subject: "Legislación y Ética en TI",
+  },
+  "2025-10-16": {
+    description: "Prueba 2 (Álgebra) y Entrega 1 (Legislación)",
+    subject: "Múltiples Asignaturas",
+  },
+  "2025-10-20": {
+    description: "Certamen 2",
+    subject: "Ingenieria de software",
+  },
+  "2025-10-24": {
+    description: "Certamen 2",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-10-26": {
+    description: "Entrega Parcial 2",
+    subject: "Ingeniería Web y Móvil",
+  },
+
+  // --- Noviembre ---
+  "2025-11-6": {
+    description: "Recuperativa",
+    subject: "Álgebra",
+  },
+    "2025-11-9": {
+    description: "Control 5",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-11-12": {
+    description: "Certamen Recuperativo",
+    subject: "Ingenieria de software",
+  },
+  "2025-11-14": {
+    description: "Presentación Proyecto Final",
+    subject: "Ingeniería Web y Móvil",
+  },
+  "2025-11-17": {
+    description: "Certamen 2 (Optimización) y Proyecto Final (Software)",
+    subject: "Múltiples Asignaturas",
+  },
+  "2025-11-19": {
+    description: "Entrega 2 - Debate",
+    subject: "Legislación y Ética en TI",
+  },
+  "2025-11-20": {
+    description: "Entrega 2 - Debate",
+    subject: "Legislación y Ética en TI",
+  },
+  "2025-11-21": {
+    description: "Tarea 2",
+    subject: "Optimización",
+  },
+  "2025-11-25": {
+    description: "Prueba 3",
+    subject: "Álgebra",
+  },
+  "2025-11-26": { 
+    description: "Debate (Legislación) y Recup. (Ing. Web)",
+    subject: "Múltiples Asignaturas",
+  },
+  "2025-11-27": {
+    description: "Ev. Pendiente (Álgebra) y Debate (Legislación)",
+    subject: "Múltiples Asignaturas",
+  },
+
+  // --- Diciembre ---
+  "2025-12-3": {
+    description: "Casos Excepcionales",
+    subject: "Álgebra",
+  },
+  "2025-12-9": {
+    description: "Examen",
+    subject: "Álgebra",
+  },
+  "2025-12-10": {
+    description: "Examen",
+    subject: "Ingeniería Web y Móvil",
+  },
+}; // Format: "2025-8-22": true
 
   const monthNames = [
     "Enero",
