@@ -244,14 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let displayedDate = new Date(2025, 7, 1) // August 2025 (month is 0-indexed)
   const events = {
   // --- Agosto ---
-  "2025-8-14": {
-    description: "Entrega TBDD",
-    subject: "Taller de Base de Datos",
-  },
-  "2025-8-17": {
-    description: "Control 1",
-    subject: "Ingeniería Web y Móvil",
-  },
   "2025-8-18": {
     description: "Quiz problema de las n-reinas",
     subject: "Optimización",
